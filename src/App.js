@@ -14,9 +14,6 @@ function App() {
     e.preventDefault();
   }
 
-  const errorMessage =  () => {
-
-  }
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
@@ -26,6 +23,7 @@ function App() {
           setusername={setusername}
           handleChange={handleChange}
           errorMessage="enter number"
+          pattern="1111-1111-1111-1111"
         />
         <FormInput
           label="CardHolder Number"
