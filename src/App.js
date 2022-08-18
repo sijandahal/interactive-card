@@ -1,23 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import FormInput from './components/FormInput';
+import { useState } from 'react';
 
 function App() {
+  const [username, setusername] = useState('');
+  console.log(username);
+
+  const handleChange = (e) => {
+    setusername(e.target.value);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
+
+  const errorMessage =  () => {
+
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form onSubmit={handleSubmit}>
+        <FormInput
+          label="CarHolderName"
+          placeholder="Name"
+          setusername={setusername}
+          handleChange={handleChange}
+          errorMessage="enter number"
+        />
+        <FormInput
+          label="CardHolder Number"
+          placeholder="Email"
+          errorMessage="number enter"
+        />
+        <FormInput placeholder="Password" errorMessage=" enter password" />
+        <button type="submit">Confirm</button>
+      </form>
+      {/* <Card/> */}
     </div>
   );
 }
